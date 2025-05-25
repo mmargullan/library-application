@@ -1,14 +1,3 @@
-create table if not exists roles (
-    id serial primary key,
-    name varchar(20) not null
-);
-
-CREATE TABLE IF NOT EXISTS users (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
-    password VARCHAR(100) NOT NULL
-);
-
 create table if not exists user_roles (
     id serial primary key,
     user_id integer not null,

@@ -22,13 +22,15 @@ class JwtAuthenticationFilter(
     private val permittedPath = listOf(
         "/api/users/register",
         "/api/users/login",
-        "users/register",
-        "users/login"
+        "/users/register",
+        "/users/login",
+        "/css/",
+        "/js/"
     )
 
     override fun filter(exchange: ServerWebExchange, chain: WebFilterChain): Mono<Void> {
         val path = exchange.request.path.pathWithinApplication().toString()
-        if (permittedPath.contains(path)) {
+        if (permittedPath.contains(path) || permittedPath.any { path.startsWith(it) }) {
             return chain.filter(exchange)
         }
         logger.info("Filtration in process")

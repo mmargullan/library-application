@@ -17,10 +17,10 @@ class JwtTokenUtil(
 
     private val key = Keys.hmacShaKeyFor(secret.toByteArray())
 
-    fun generateToken(user: User, role: String): String {
+    fun generateToken(user: User, roles: List<String>): String {
         return Jwts.builder()
             .setSubject(user.username)
-            .claim("role", role)
+            .claim("role", roles)
             .setIssuedAt(Date(System.currentTimeMillis()))
             .setExpiration(Date(System.currentTimeMillis() + validationTime))
             .signWith(key, SignatureAlgorithm.HS256)

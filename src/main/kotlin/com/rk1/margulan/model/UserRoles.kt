@@ -4,13 +4,16 @@ import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
 
-@Table("roles")
-class Role {
+@Table("user_roles")
+class UserRoles {
 
     @Id
-    var id: Long? = null
+    var id: String? = null
 
-    @Column
-    var name: String? = null
+    @Column("user_id")
+    var userId: Long? = null
+
+    @Column("role_id")
+    var roleId: Long? = null
 
 }

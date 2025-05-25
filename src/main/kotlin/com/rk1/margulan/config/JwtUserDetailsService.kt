@@ -14,7 +14,7 @@ class JwtUserDetailsService(
 
     override fun findByUsername(username: String): Mono<UserDetails> {
         return userRepository.findByUsername(username)
-            .switchIfEmpty(Mono.error(UsernameNotFoundException("User not found with username: $username")))
+            .switchIfEmpty(Mono.error(UsernameNotFoundException("User not found")))
             .map { user -> SpringSecurityUser(user) }
     }
 

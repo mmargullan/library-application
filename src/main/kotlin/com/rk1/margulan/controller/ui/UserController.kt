@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 
 @Controller
 @RequestMapping("/users")
-class UserController(
-    private val userService: UserService,
-    private val userRepository: UserRepository
-) {
+class UserController() {
 
     @GetMapping("/register")
     fun create(model: Model): String {
