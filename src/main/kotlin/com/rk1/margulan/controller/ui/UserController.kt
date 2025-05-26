@@ -16,4 +16,9 @@ class UserController() {
         return "register_page"
     }
 
+    @GetMapping("/login")
+    fun login(model: Model): String {
+        return "login_page"
+    }
+
 }
